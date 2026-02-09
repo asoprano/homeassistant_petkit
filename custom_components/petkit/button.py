@@ -249,6 +249,22 @@ BUTTON_MAPPING: dict[type[PetkitDevices], list[PetKitButtonDesc]] = {
             ),
             only_for_types=DEVICES_WATER_FOUNTAIN,
         ),
+        PetKitButtonDesc(
+            key="Power on",
+            translation_key="power_on",
+            action=lambda api, device: api.bluetooth_manager.send_ble_command(
+                device.id, FountainAction.POWER_ON
+            ),
+            only_for_types=DEVICES_WATER_FOUNTAIN,
+        ),
+        PetKitButtonDesc(
+            key="Power off",
+            translation_key="power_off",
+            action=lambda api, device: api.bluetooth_manager.send_ble_command(
+                device.id, FountainAction.POWER_OFF
+            ),
+            only_for_types=DEVICES_WATER_FOUNTAIN,
+        ),
     ],
     Purifier: [*COMMON_ENTITIES],
     Pet: [*COMMON_ENTITIES],

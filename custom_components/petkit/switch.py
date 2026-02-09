@@ -21,8 +21,6 @@ from pypetkitapi import (
     Purifier,
     WaterFountain,
 )
-from pypetkitapi.command import FountainAction
-
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.const import EntityCategory
 
@@ -842,24 +840,7 @@ SWITCH_MAPPING: dict[type[PetkitDevices], list[PetKitSwitchDesc]] = {
             ),
         ),
     ],
-    WaterFountain: [
-        *COMMON_ENTITIES,
-        PetKitSwitchDesc(
-            key="Power",
-            translation_key="power",
-            value=lambda device: (
-                None
-                if device.status.run_status is None
-                else device.status.run_status > 0
-            ),
-            turn_on=lambda api, device: api.bluetooth_manager.send_ble_command(
-                device.id, FountainAction.POWER_ON
-            ),
-            turn_off=lambda api, device: api.bluetooth_manager.send_ble_command(
-                device.id, FountainAction.POWER_OFF
-            ),
-        ),
-    ],
+    WaterFountain: [*COMMON_ENTITIES],
     Purifier: [
         *COMMON_ENTITIES,
         PetKitSwitchDesc(
