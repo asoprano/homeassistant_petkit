@@ -137,6 +137,12 @@
             },
             "power_off": {
                 "name": "Ausschalten"
+            },
+            "fountain_pause": {
+                "name": "Pausieren"
+            },
+            "fountain_resume": {
+                "name": "Fortsetzen"
             }
         },
         "fan": {

@@ -190,6 +190,12 @@
             },
             "power_off": {
                 "name": "Power off"
+            },
+            "fountain_pause": {
+                "name": "Pause"
+            },
+            "fountain_resume": {
+                "name": "Resume"
             }
         },
         "fan": {
