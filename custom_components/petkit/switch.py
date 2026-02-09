@@ -849,8 +849,8 @@ SWITCH_MAPPING: dict[type[PetkitDevices], list[PetKitSwitchDesc]] = {
             translation_key="power",
             value=lambda device: (
                 None
-                if device.status.power_status is None
-                else device.status.power_status > 0
+                if device.status.run_status is None
+                else device.status.run_status > 0
             ),
             turn_on=lambda api, device: api.bluetooth_manager.send_ble_command(
                 device.id, FountainAction.POWER_ON
